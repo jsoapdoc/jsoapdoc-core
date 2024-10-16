@@ -138,7 +138,12 @@ public class HtmlGenerator {
 
     private String generateSampleXml(Class<?> clazz, int indentLevel) {
         StringBuilder xmlBuilder = new StringBuilder();
-        String indent = "  ".repeat(indentLevel);
+//        String indent = "  ".repeat(indentLevel);
+        StringBuilder indentBuilder = new StringBuilder();
+        for (int i = 0; i < indentLevel; i++) {
+            indentBuilder.append("  ");
+        }
+        String indent = indentBuilder.toString();
         String rootElement = clazz.getSimpleName();
         xmlBuilder.append(indent).append("<").append(rootElement).append(">\n");
 
