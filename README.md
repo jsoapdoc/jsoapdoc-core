@@ -169,4 +169,4 @@ Component Scan Requirement: The @ComponentScan annotation in your main applicati
 
 Generated Documentation Location: The soap-docs.html file will be generated in the root of your project directory. Ensure your application has write permissions to this location.
 
-For reference documentation, see https://jsoapdoc.github.io/
+For reference documentation, see https://github.com/danilopichilli/jsoapdoc
