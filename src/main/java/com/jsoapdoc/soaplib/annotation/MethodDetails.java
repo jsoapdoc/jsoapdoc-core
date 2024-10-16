@@ -17,6 +17,4 @@ public @interface MethodDetails {
     String version() default "1.0";
 
     String[] rolesAllowed() default {};
-
-    boolean printInfo() default false;
 }

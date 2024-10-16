@@ -11,37 +11,37 @@ import java.util.List;
 
 public class AnnotationProcessor {
 
-    public static void processMethodDetailsAnnotation(Class<?> clazz) {
-        Method[] methods = clazz.getDeclaredMethods();
-
-        for (Method method : methods) {
-            if (method.isAnnotationPresent(MethodDetails.class)) {
-                MethodDetails methodAnnotation = method.getAnnotation(MethodDetails.class);
-
-                if (methodAnnotation.printInfo()) {
-                    System.out.println("Method: " + method.getName());
-                    System.out.println("Description: " + methodAnnotation.description());
-                    System.out.println("Request Type: " + methodAnnotation.requestType().getSimpleName());
-                    System.out.println("Response Type: " + methodAnnotation.responseType().getSimpleName());
-                    System.out.println("Version: " + methodAnnotation.version());
-                    System.out.println("Roles Allowed: " + String.join(", ", methodAnnotation.rolesAllowed()));
-                    System.out.println();
-                }
-            }
-        }
-    }
-
-    public static void processEndpointAnnotation(Class<?> clazz) {
-        if (clazz.isAnnotationPresent(EndpointInfo.class)) {
-            EndpointInfo endpointInfo = clazz.getAnnotation(EndpointInfo.class);
-
-            System.out.println("Endpoint Name: " + endpointInfo.name());
-            System.out.println("Description: " + endpointInfo.description());
-            System.out.println("Version: " + endpointInfo.version());
-            System.out.println("Roles Allowed: " + String.join(", ", endpointInfo.rolesAllowed()));
-            System.out.println();
-        }
-    }
+//    public static void processMethodDetailsAnnotation(Class<?> clazz) {
+//        Method[] methods = clazz.getDeclaredMethods();
+//
+//        for (Method method : methods) {
+//            if (method.isAnnotationPresent(MethodDetails.class)) {
+//                MethodDetails methodAnnotation = method.getAnnotation(MethodDetails.class);
+//
+//                if (methodAnnotation.printInfo()) {
+//                    System.out.println("Method: " + method.getName());
+//                    System.out.println("Description: " + methodAnnotation.description());
+//                    System.out.println("Request Type: " + methodAnnotation.requestType().getSimpleName());
+//                    System.out.println("Response Type: " + methodAnnotation.responseType().getSimpleName());
+//                    System.out.println("Version: " + methodAnnotation.version());
+//                    System.out.println("Roles Allowed: " + String.join(", ", methodAnnotation.rolesAllowed()));
+//                    System.out.println();
+//                }
+//            }
+//        }
+//    }
+//
+//    public static void processEndpointAnnotation(Class<?> clazz) {
+//        if (clazz.isAnnotationPresent(EndpointInfo.class)) {
+//            EndpointInfo endpointInfo = clazz.getAnnotation(EndpointInfo.class);
+//
+//            System.out.println("Endpoint Name: " + endpointInfo.name());
+//            System.out.println("Description: " + endpointInfo.description());
+//            System.out.println("Version: " + endpointInfo.version());
+//            System.out.println("Roles Allowed: " + String.join(", ", endpointInfo.rolesAllowed()));
+//            System.out.println();
+//        }
+//    }
 
     public static WsdlInfo collectWsdlInfo(Class<?> endpointClass) {
         EndpointInfo endpointInfo = endpointClass.getAnnotation(EndpointInfo.class);
