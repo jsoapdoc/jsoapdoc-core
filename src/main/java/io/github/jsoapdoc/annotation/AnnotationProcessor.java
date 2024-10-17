@@ -1,8 +1,8 @@
-package com.jsoapdoc.soaplib.annotation;
+package io.github.jsoapdoc.annotation;
 
-import com.jsoapdoc.soaplib.model.OperationInfo;
-import com.jsoapdoc.soaplib.model.ParameterInfo;
-import com.jsoapdoc.soaplib.model.WsdlInfo;
+import io.github.jsoapdoc.model.OperationInfo;
+import io.github.jsoapdoc.model.ParameterInfo;
+import io.github.jsoapdoc.model.WsdlInfo;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

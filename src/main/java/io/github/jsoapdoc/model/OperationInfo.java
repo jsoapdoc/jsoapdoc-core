@@ -1,4 +1,4 @@
-package com.jsoapdoc.soaplib.model;
+package io.github.jsoapdoc.model;
 
 import java.util.List;
 

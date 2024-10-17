@@ -51,21 +51,22 @@ Note: Replace com.yourcompany.yourapp.controller with the actual package name wh
 3. **Enable jsoapdoc**
 
    Add the @EnableSoapDocs annotation to your main application class and include a component scan for com.jsoapdoc.soaplib.
+
  ```java
-    import com.jsoapdoc.soaplib.annotation.EnableSoapDocs;
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-    import org.springframework.context.annotation.ComponentScan;
-    
-    @SpringBootApplication
-    @EnableSoapDocs
-    @ComponentScan(basePackages = "com.jsoapdoc.soaplib")
-    public class YourApplication {
-    
-        public static void main(String[] args) {
-            SpringApplication.run(YourApplication.class, args);
-        }
+    import annotation.io.github.jsoapdoc.EnableSoapDocs;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@EnableSoapDocs
+@ComponentScan(basePackages = "com.jsoapdoc.soaplib")
+public class YourApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(YourApplication.class, args);
     }
+}
 ```
 ***Note:*** **The @ComponentScan annotation is necessary to ensure that jsoapdoc's components are discovered by Spring Boot.**
 
@@ -77,16 +78,16 @@ Note: Replace com.yourcompany.yourapp.controller with the actual package name wh
 Use @EndpointInfo to provide general information about your service.
 
 ```java
-import com.jsoapdoc.soaplib.annotation.EndpointInfo;
+import annotation.io.github.jsoapdoc.EndpointInfo;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 
 @Endpoint
 @EndpointInfo(
-    name = "Calculator Service",
-    description = "Provides basic arithmetic operations",
-    version = "1.0",
-    rolesAllowed = {"USER", "ADMIN"}
-    )
+        name = "Calculator Service",
+        description = "Provides basic arithmetic operations",
+        version = "1.0",
+        rolesAllowed = {"USER", "ADMIN"}
+)
 public class CalculatorEndpoint {
     // ...
 }
@@ -94,19 +95,20 @@ public class CalculatorEndpoint {
    - Annotate Methods:
 
 Use @MethodDetails to provide information about each operation.
+
 ```java
-import com.jsoapdoc.soaplib.annotation.MethodDetails;
+import annotation.io.github.jsoapdoc.MethodDetails;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-    
+
 @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AddRequest")
 @ResponsePayload
 @MethodDetails(
-    description = "Adds two numbers",
-    requestType = AddRequest.class,
-    responseType = AddResponse.class,
-    version = "1.0",
-    rolesAllowed = {"USER", "ADMIN"},
+        description = "Adds two numbers",
+        requestType = AddRequest.class,
+        responseType = AddResponse.class,
+        version = "1.0",
+        rolesAllowed = {"USER", "ADMIN"},
 )
 public AddResponse add(AddRequest request) {
     // Implementation
@@ -118,16 +120,16 @@ Annotate Fields for Required Parameters:
 Use @Required to specify if a field is mandatory in your request or response classes.
 
 ```java
-import com.jsoapdoc.soaplib.annotation.Required;
-    
+import annotation.io.github.jsoapdoc.Required;
+
 public class AddRequest {
-    
+
     @Required
     private Integer a;
-    
+
     @Required
     private Integer b;
-    
+
     private String comment; // Optional field
 }
 ```

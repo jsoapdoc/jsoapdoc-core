@@ -1,11 +1,11 @@
-package com.jsoapdoc.soaplib.service;
+package io.github.jsoapdoc.service;
 
-import com.jsoapdoc.soaplib.annotation.AnnotationProcessor;
-import com.jsoapdoc.soaplib.model.EndpointHtmlResult;
-import com.jsoapdoc.soaplib.model.OperationInfo;
-import com.jsoapdoc.soaplib.model.ParameterInfo;
-import com.jsoapdoc.soaplib.model.WsdlInfo;
-import com.jsoapdoc.soaplib.config.SoapDocConfig;
+import io.github.jsoapdoc.annotation.AnnotationProcessor;
+import io.github.jsoapdoc.model.EndpointHtmlResult;
+import io.github.jsoapdoc.model.OperationInfo;
+import io.github.jsoapdoc.model.ParameterInfo;
+import io.github.jsoapdoc.model.WsdlInfo;
+import io.github.jsoapdoc.config.SoapDocConfig;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;

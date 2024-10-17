@@ -1,9 +1,9 @@
-package com.jsoapdoc.soaplib.config;
+package io.github.jsoapdoc.config;
 
-import com.jsoapdoc.soaplib.annotation.EnableSoapDocs;
-import com.jsoapdoc.soaplib.annotation.EndpointInfo;
-import com.jsoapdoc.soaplib.model.EndpointHtmlResult;
-import com.jsoapdoc.soaplib.service.HtmlGenerator;
+import io.github.jsoapdoc.annotation.EnableSoapDocs;
+import io.github.jsoapdoc.annotation.EndpointInfo;
+import io.github.jsoapdoc.model.EndpointHtmlResult;
+import io.github.jsoapdoc.service.HtmlGenerator;
 import org.reflections.Reflections;
 import org.reflections.util.ConfigurationBuilder;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
