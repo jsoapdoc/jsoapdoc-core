@@ -1,9 +1,9 @@
 package io.github.jsoapdoc.model;
 
 public class EndpointHtmlResult {
-    private String controllerId;
-    private String displayName;
-    private String content;
+    private final String controllerId;
+    private final String displayName;
+    private final String content;
 
     public EndpointHtmlResult(String controllerId, String displayName, String content) {
         this.controllerId = controllerId;

@@ -36,13 +36,12 @@ public class HtmlGenerator {
                 .append("\" style=\"display:none;\">");
 
         htmlBuilder.append("<div class=\"header-container\">");
-        htmlBuilder.append("<h1>").append(serviceName).append("</h1>");
-        htmlBuilder.append("</div><hr>");
+        htmlBuilder.append("<h2>Endpoint: ").append(serviceName).append("</h2>");
+        htmlBuilder.append("</div>");
 
         htmlBuilder.append("<p><strong>Description:</strong> ").append(wsdlInfo.getDescription()).append("</p>");
         htmlBuilder.append("<p><strong>Version:</strong> ").append(wsdlInfo.getVersion()).append("</p>");
         htmlBuilder.append("<p><strong>Roles Allowed:</strong> ").append(String.join(", ", wsdlInfo.getRolesAllowed())).append("</p>");
-        htmlBuilder.append("<hr>");
 
         if (wsdlInfo.getOperations() != null && !wsdlInfo.getOperations().isEmpty()) {
             List<OperationInfo> operations = wsdlInfo.getOperations();
@@ -50,8 +49,9 @@ public class HtmlGenerator {
             htmlBuilder.append("<div id=\"").append(controllerId).append("-operations\" class=\"content-container active\">");
 
             for (OperationInfo operation : operations) {
+                htmlBuilder.append("<hr>");
                 htmlBuilder.append("<div class=\"operation\">");
-                htmlBuilder.append("<h2>").append(operation.getOperationName()).append("</h2>");
+                htmlBuilder.append("<h3>Method: ").append(operation.getOperationName()).append("</h3>");
                 htmlBuilder.append("<p><strong>Description:</strong> ").append(operation.getDescription()).append("</p>");
                 htmlBuilder.append("<p><strong>Version:</strong> ").append(operation.getVersion()).append("</p>");
                 htmlBuilder.append("<p><strong>Roles Allowed:</strong> ").append(String.join(", ", operation.getRolesAllowed())).append("</p>");
@@ -114,7 +114,7 @@ public class HtmlGenerator {
 
 
 
-                htmlBuilder.append("</div><hr>");
+                htmlBuilder.append("</div>");
             }
 
             htmlBuilder.append("</div>"); // Fine sezione operazioni

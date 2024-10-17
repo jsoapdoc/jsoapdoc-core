@@ -80,14 +80,24 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
 
         htmlBuilder.append("<!DOCTYPE html>");
         htmlBuilder.append("<html><head><title>SOAP Service Documentation</title>");
-        // Include CSS
+        // CSS
         htmlBuilder.append("<style>");
-        // Inserisci qui il tuo CSS esistente
-        htmlBuilder.append("body {font-family: Arial, sans-serif; margin: 20px; padding: 0; background-color: #f4f4f9;}");
-        htmlBuilder.append(".header-container {display: flex; align-items: center; justify-content: center;}");
-        htmlBuilder.append(".header-container img {width: 100px; height: 100px; position: absolute; right: 0; top: 0;}");
-        htmlBuilder.append(".header-container h1 {color: #333; padding-bottom: 10px; font-size: 26px; text-align: center;}");
-        htmlBuilder.append("hr {border: 0; height: 2px; background-color: rgb(0, 255, 242); margin: 10px 0;}");
+        // BODY
+        htmlBuilder.append("body {font-family: Roboto, sans-serif; margin: 20px; padding: 0; background-color: #f4f4f9;}");
+        // HEADER
+        htmlBuilder.append(".header-container {display: flex; justify-content: space-around; align-items: center;}");
+        htmlBuilder.append(".header-container img {width: 100px; height: 100px;}");
+        htmlBuilder.append(".header-container h1 {color: #12264B; padding-bottom: 10px; font-size: 26px; text-align: center;}");
+        // HR
+        htmlBuilder.append("hr {background-color: #12264B; border: 0; height: 10px; margin: 10px 0; border-radius: 5px;}");
+//        htmlBuilder.append("hr {border: 0; height: 10px; background-image: linear-gradient(90deg, #81D8D0, #5BEAEE); background-size: 200% 100%; animation: gradientMove 5s ease infinite; margin: 10px 0; border-radius: 5px;}");
+        // HR ANIMATION
+//        htmlBuilder.append("@keyframes gradientMove {");
+//        htmlBuilder.append("0% {background-position: 0% 50%;}");
+//        htmlBuilder.append("50% {background-position: 100% 50%;}");
+//        htmlBuilder.append("100% {background-position: 0% 50%;}");
+//        htmlBuilder.append("}");
+        // DROPDOWN
         htmlBuilder.append(".dropdown {margin-bottom: 20px;}");
         htmlBuilder.append(".dropdown label {font-size: 18px; margin-right: 10px;}");
         htmlBuilder.append(".dropdown select {padding: 5px 10px; font-size: 16px;}");
@@ -96,38 +106,46 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
         htmlBuilder.append(".tab-button.active {background-color: rgb(0, 88, 121);}");
         htmlBuilder.append(".content-container {display: none;}");
         htmlBuilder.append(".content-container.active {display: block;}");
-        htmlBuilder.append("h2 {color: rgb(2, 187, 255); margin-top: 20px; font-size: 22px; text-align: center;}");
+        // H2
+        htmlBuilder.append("h2 {color: #333; margin-top: 20px; text-align: center;}");
+        // H3
+        htmlBuilder.append("h3 {color: #333; margin-top: 20px; text-align: center;}");
         htmlBuilder.append(".container {display: grid; grid-template-columns: 1fr 1fr; gap: 10px;}");
         htmlBuilder.append("ul {list-style-type: none; padding: 0; margin: 0;}");
         htmlBuilder.append("li {background-color: #ffffff; border: 1px solid #ddd; margin-bottom: 10px; padding: 15px; border-radius: 5px;}");
         htmlBuilder.append("li strong {font-size: 18px; color: #333;}");
         htmlBuilder.append("li ul {padding-left: 20px;}");
         htmlBuilder.append("li ul li {background-color: #f9f9f9; border: none; margin-bottom: 5px; padding: 8px; border-radius: 3px;}");
+        // TABLE
         htmlBuilder.append("table {width: 100%; border-collapse: collapse; margin-bottom: 20px;}");
         htmlBuilder.append("th, td {border: 1px solid #ddd; padding: 8px; text-align: left;}");
         htmlBuilder.append("th {background-color: #f2f2f2;}");
         htmlBuilder.append(".operation {margin-bottom: 30px;}");
-        //htmlBuilder.append("textarea { width: 100%; padding: 10px; font-family: monospace; font-size: 14px; }");
+        // TEXT AREA
         htmlBuilder.append(".textarea-container {position: relative; margin-top: 10px;}");
         htmlBuilder.append(".textarea-container textarea { width: 100%; height: 200px; padding: 10px; font-family: monospace; font-size: 14px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; resize: none; box-sizing: border-box;}");
         htmlBuilder.append(".textarea-container button.copy-button {position: absolute; top: 10px; right: 10px; padding: 5px 10px; font-size: 12px; background-color: #008CBA; color: white; border: none; border-radius: 3px; cursor: pointer;}");
         htmlBuilder.append(".textarea-container button.copy-button:hover {background-color: #006F9A;}");
+        // BUTTON
         htmlBuilder.append("button {margin-top: 5px; padding: 10px 15px; font-size: 14px; background-color: #008CBA; color: white; border: none; border-radius: 5px; cursor: pointer;}");
         htmlBuilder.append("button:hover {background-color: #006F9A;}");
+        // FOOTER
+        htmlBuilder.append("footer { background-color: #12264B; color: #81D8D0; text-align: center; padding: 20px 0; position: relative; bottom: 0; width: 100%; border-radius: 5px; } ");
+        htmlBuilder.append(".footer-container p { margin: 0; font-size: 14px; opacity: 0.8; } ");
         htmlBuilder.append("</style>");
         htmlBuilder.append("</head><body>");
 
-        // Contenuto principale
+        // HEADER
         htmlBuilder.append("<div class=\"header-container\">");
         htmlBuilder.append("<h1>SOAP Service Documentation</h1>");
         htmlBuilder.append("<img src=\"https://i.postimg.cc/dZZPzzJR/soap.png\" alt=\"logo\">");
         htmlBuilder.append("</div><hr>");
 
-        // Dropdown per la selezione dei controller
+        // DROPDOWN
         htmlBuilder.append("<div class=\"dropdown\">");
-        htmlBuilder.append("<label for=\"controllerSelect\">Seleziona Endpoint:</label>");
+        htmlBuilder.append("<label for=\"controllerSelect\">Select Endpoint:</label>");
         htmlBuilder.append("<select id=\"controllerSelect\" onchange=\"showControllerContent()\">");
-        htmlBuilder.append("<option value=\"\">--Seleziona Endpoint--</option>");
+        htmlBuilder.append("<option value=\"\" disabled selected>-- Select Endpoint --</option>");
         for (EndpointHtmlResult controllerInfo : controllerInfos) {
             htmlBuilder.append("<option value=\"").append(controllerInfo.getControllerId()).append("\">")
                     .append(controllerInfo.getDisplayName()).append("</option>");
@@ -135,32 +153,52 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
         htmlBuilder.append("</select>");
         htmlBuilder.append("</div>");
 
-        // Contenuti dei controller
+        // DEFAULT CONTENT
+        htmlBuilder.append("<div id=\"defaultContent\" class=\"default-content\">");
+        htmlBuilder.append("<h2>Welcome to the SOAP Service Documentation!</h2>");
+        htmlBuilder.append("<p style=\"text-align: center;\">Please select an endpoint from the dropdown above to view its details.</p>");
+        htmlBuilder.append("</div>");
+
+        // CONTENT OF CONTROLLER
         for (EndpointHtmlResult controllerInfo : controllerInfos) {
             htmlBuilder.append(controllerInfo.getContent());
         }
 
-        // Script JavaScript per gestire la visualizzazione
+        //FOOTER
+        htmlBuilder.append("<footer>");
+        htmlBuilder.append("<div class=\"footer-container\">");
+        htmlBuilder.append("<p>&copy;Copyright 2024 Danilo Pichilli. JSoapDoc All rights reserved.</p>");
+        htmlBuilder.append("</div>");
+        htmlBuilder.append("</footer>");
+
+        // SCRIPT
         htmlBuilder.append("<script>");
+        // showControllerContent()
         htmlBuilder.append("function showControllerContent() {");
         htmlBuilder.append("var select = document.getElementById('controllerSelect');");
         htmlBuilder.append("var selectedId = select.value;");
         htmlBuilder.append("var contents = document.getElementsByClassName('controller-content');");
+        htmlBuilder.append("var defaultContent = document.getElementById('defaultContent');");
         htmlBuilder.append("for (var i = 0; i < contents.length; i++) {");
         htmlBuilder.append("contents[i].style.display = 'none';");
-        htmlBuilder.append("}");
+        htmlBuilder.append("} ");
         htmlBuilder.append("if (selectedId) {");
         htmlBuilder.append("var selectedElement = document.getElementById(selectedId);");
         htmlBuilder.append("if (selectedElement) {");
         htmlBuilder.append("selectedElement.style.display = 'block';");
+        htmlBuilder.append("} ");
+        htmlBuilder.append("defaultContent.style.display = 'none';");
+        htmlBuilder.append("} else {");
+        htmlBuilder.append("defaultContent.style.display = 'block';");
         htmlBuilder.append("}");
-        htmlBuilder.append("}}");
+        htmlBuilder.append("} ");
+        // copyToClipboard(elementId)
         htmlBuilder.append("function copyToClipboard(elementId) {");
         htmlBuilder.append("var textarea = document.getElementById(elementId);");
         htmlBuilder.append("textarea.select();");
         htmlBuilder.append("textarea.setSelectionRange(0, 99999);");
         htmlBuilder.append("document.execCommand('copy');");
-        htmlBuilder.append("alert('Contenuto copiato negli appunti');");
+        htmlBuilder.append("alert('Content copied to clipboard.');");
         htmlBuilder.append("}");
         htmlBuilder.append("</script>");
 
@@ -181,7 +219,7 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
                 "<head>" +
                 "<title>Error</title>" +
                 "<style>" +
-                "body {font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f9;}" +
+                "body {font-family: Roboto, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f9;}" +
                 ".error-box {text-align: center; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}" +
                 "h1 {color: #ff4f4f; font-size: 24px; margin: 0;}" +
                 "</style>" +
