@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.jsoapdoc</groupId>
-    <artifactId>jsoapdoc</artifactId>
+    <artifactId>jsoapdoc-core</artifactId>
     <version>0.0.1</version>
 
     <name>jsoapdoc</name>
     <description>SOAP Service Documentation Generator for Java</description>
-    <url>https://github.com/danilopichilli/jsoapdoc</url>
+    <url>https://github.com/jsoapdoc/jsoapdoc-core</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,9 +25,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/danilopichilli/jsoapdoc.git</connection>
-        <developerConnection>scm:git:git://github.com/danilopichilli/jsoapdoc.git</developerConnection>
-        <url>https://github.com/danilopichilli/jsoapdoc</url>
+        <connection>scm:git:git://github.com/jsoapdoc/jsoapdoc-core.git</connection>
+        <developerConnection>scm:git:git://github.com/jsoapdoc/jsoapdoc-core.git</developerConnection>
+        <url>https://github.com/jsoapdoc/jsoapdoc-core</url>
     </scm>
 
     <dependencies>

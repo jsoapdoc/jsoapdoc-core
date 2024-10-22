@@ -1,0 +1,52 @@
+name: Deploy to Maven Central
+
+# Esegui il workflow ogni volta che viene fatto push sul branch master
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout del codice
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Imposta JDK
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '1.8'
+          distribution: 'adopt' # Puoi cambiare con 'zulu' o 'temurin' se preferisci
+
+      # Aggiorna la versione nel pom.xml (utilizza maven-release-plugin)
+      - name: Set version to release
+        run: mvn build-helper:parse-version versions:set -DnewVersion=1.0.${{ github.run_number }} versions:commit
+
+      # Decrypt GPG key
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 --decode | gpg --batch --import
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+
+      # Crea il file settings.xml per l'autenticazione con Maven Central
+      - name: Setup Maven settings
+        run: |
+          echo "<settings><servers><server><id>ossrh</id><username>${{ secrets.OSSRH_USERNAME }}</username><password>${{ secrets.OSSRH_PASSWORD }}</password></server></servers><profiles><profile><id>ossrh</id><properties><gpg.executable>gpg</gpg.executable><gpg.passphrase>${{ secrets.GPG_PASSPHRASE }}</gpg.passphrase></properties></profile></profiles></settings>" > $HOME/.m2/settings.xml
+
+      # Build, Sign, Deploy
+      - name: Build and deploy to Maven Central
+        run: mvn clean deploy -P ossrh --settings $HOME/.m2/settings.xml -DskipTests -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }}
+
+      # Commit the version bump
+      - name: Commit new version to Git
+        run: |
+          git config user.name "danilopichilli"
+          git config user.email "danyp987@gmail.com"
+          git add pom.xml
+          git commit -m "Bump version to 1.0.${{ github.run_number }}"
+          git push origin master
