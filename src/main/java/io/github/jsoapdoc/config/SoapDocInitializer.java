@@ -167,7 +167,7 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
         //FOOTER
         htmlBuilder.append("<footer>");
         htmlBuilder.append("<div class=\"footer-container\">");
-        htmlBuilder.append("<p>&copy;Copyright 2024 Danilo Pichilli. JSoapDoc All rights reserved.</p>");
+        //htmlBuilder.append("<p>&copy;Copyright 2024 Danilo Pichilli. JSoapDoc All rights reserved.</p>");
         htmlBuilder.append("</div>");
         htmlBuilder.append("</footer>");
 

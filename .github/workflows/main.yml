@@ -23,8 +23,8 @@ jobs:
           distribution: 'adopt' # Puoi cambiare con 'zulu' o 'temurin' se preferisci
 
       # Aggiorna la versione nel pom.xml (utilizza maven-release-plugin)
-      - name: Set version to release
-        run: mvn build-helper:parse-version versions:set -DnewVersion=1.0.${{ github.run_number }} versions:commit
+      #- name: Set version to release
+      #  run: mvn build-helper:parse-version versions:set -DnewVersion=1.0.${{ github.run_number }} versions:commit
 
       # Decrypt GPG key
       - name: Import GPG key
