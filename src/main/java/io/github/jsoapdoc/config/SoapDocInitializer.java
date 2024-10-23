@@ -12,7 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Component
 public class SoapDocInitializer implements ApplicationListener<ApplicationReadyEvent> {
@@ -20,12 +22,24 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
     private final SoapDocConfig soapDocConfig;
     private final HtmlGenerator htmlGenerator;
 
+
     public SoapDocInitializer(SoapDocConfig soapDocConfig, HtmlGenerator htmlGenerator) {
         this.soapDocConfig = soapDocConfig;
         this.htmlGenerator = htmlGenerator;
         System.out.println("Inizializzazione documentazione SOAP in corso...");
     }
 
+
+    /**
+     * Handles the ApplicationReadyEvent to generate SOAP documentation if the
+     * main application class is annotated with {@link EnableSoapDocs} It retrieves the
+     * controller package from configuration, searches for classes annotated with
+     *
+     * @param event the ApplicationReadyEvent indicating that the application is ready
+     * {@link EndpointInfo}, generates HTML documentation for each endpoint, and writes
+     * the complete documentation to a file. In case of any IOException during
+     * the process, an error page is generated.
+     */
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         System.out.println("Evento ApplicationReadyEvent intercettato...");
@@ -75,6 +89,13 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
         }
     }
 
+    /**
+     * Generates the full HTML documentation for the given list of
+     * {@link EndpointHtmlResult}s.
+     *
+     * @param controllerInfos the list of {@link EndpointHtmlResult}s
+     * @return the full HTML documentation
+     */
     private String generateFullHtml(List<EndpointHtmlResult> controllerInfos) {
         StringBuilder htmlBuilder = new StringBuilder();
 
@@ -207,12 +228,24 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
         return htmlBuilder.toString();
     }
 
+    /**
+     * Writes the given content to a file with the specified file name.
+     *
+     * @param fileName the name of the file to write to
+     * @param content  the content to be written to the file
+     * @throws IOException if an I/O error occurs while writing to the file
+     */
     private void writeToFile(String fileName, String content) throws IOException {
         try (FileWriter fileWriter = new FileWriter(fileName)) {
             fileWriter.write(content);
         }
     }
 
+    /**
+     * Generates an error page when there is an error during the generation of the SOAP documentation.
+     * The error page is a simple HTML page with a red title and a white box with a centered text.
+     * The page is written to a file named "error.html".
+     */
     private void generateErrorPage() {
         String errorContent = "<!DOCTYPE html>" +
                 "<html>" +

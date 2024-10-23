@@ -21,26 +21,54 @@ public class ParameterInfo {
     public ParameterInfo() {
     }
 
+    /**
+     * Gets the name of this parameter.
+     * @return The name of this parameter.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the name of this parameter.
+     *
+     * @param name The name to set for this parameter.
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets the type of this parameter, as a fully qualified Java class name.
+     * @return The type of this parameter.
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Sets the type of this parameter.
+     *
+     * @param type The type to set for this parameter, as a fully qualified Java class name.
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * Determines if this parameter is required.
+     *
+     * @return true if this parameter is required; false otherwise.
+     */
     public boolean isRequired() {
         return required;
     }
 
+    /**
+     * Sets whether this parameter is required.
+     *
+     * @param required true if this parameter is required; false otherwise.
+     */
     public void setRequired(boolean required) {
         this.required = required;
     }

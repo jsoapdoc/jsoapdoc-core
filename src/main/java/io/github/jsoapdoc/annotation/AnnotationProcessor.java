@@ -43,6 +43,15 @@ public class AnnotationProcessor {
 //        }
 //    }
 
+    /**
+     * Collects information about a WSDL endpoint, including its name, description, version,
+     * and roles allowed. Additionally, it collects information about the operations
+     * ({@link MethodDetails}) exposed by the endpoint.
+     *
+     * @param endpointClass the class of the endpoint to collect information from
+     * @return a WsdlInfo object or null if the endpoint class is not annotated with
+     * EndpointInfo
+     */
     public static WsdlInfo collectWsdlInfo(Class<?> endpointClass) {
         EndpointInfo endpointInfo = endpointClass.getAnnotation(EndpointInfo.class);
         if (endpointInfo == null) {
@@ -88,6 +97,12 @@ public class AnnotationProcessor {
         return wsdlInfo;
     }
 
+    /**
+     * Extracts the fields from a class and converts them to a list of ParameterInfo instances.
+     *
+     * @param clazz The class from which to extract the fields.
+     * @return A list of ParameterInfo instances.
+     */
     private static List<ParameterInfo> extractFieldsFromClass(Class<?> clazz) {
         List<ParameterInfo> parameters = new ArrayList<>();
         Field[] fields = clazz.getDeclaredFields();

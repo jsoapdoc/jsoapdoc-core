@@ -14,7 +14,7 @@ public @interface MethodDetails {
 
     Class<?> responseType();
 
-    String version() default "1.0";
+    String version() default "0.1";
 
     String[] rolesAllowed() default {};
 }

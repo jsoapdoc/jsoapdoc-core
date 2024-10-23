@@ -17,10 +17,21 @@ public class SoapDocConfig {
         System.out.println("Package Controller: " + controllerPackage);
     }
 
+    /**
+     * Get the package name of the controllers to be documented.
+     *
+     * @return the package name
+     */
     public String getControllerPackage() {
         return controllerPackage;
     }
 
+    /**
+     * Set the package name of the controllers to be documented.
+     *
+     * @param controllerPackage
+     *            the package name
+     */
     public void setControllerPackage(String controllerPackage) {
         this.controllerPackage = controllerPackage;
     }
