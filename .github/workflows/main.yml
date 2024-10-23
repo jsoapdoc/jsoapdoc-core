@@ -41,12 +41,3 @@ jobs:
       # Build, Sign, Deploy
       - name: Build and deploy to Maven Central
         run: mvn clean deploy -P release --settings $HOME/.m2/settings.xml -DskipTests -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }}
-
-      # Commit the version bump
-      - name: Commit new version to Git
-        run: |
-          git config user.name "danilopichilli"
-          git config user.email "danyp987@gmail.com"
-          git add pom.xml
-          git commit -m "Bump version to 1.0.${{ github.run_number }}"
-          git push origin master
