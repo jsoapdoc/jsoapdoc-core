@@ -5,14 +5,14 @@
 
     <groupId>io.github.jsoapdoc</groupId>
     <artifactId>jsoapdoc-core</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 
     <name>jsoapdoc</name>
     <description>SOAP Service Documentation Generator for Java</description>
     <url>https://github.com/jsoapdoc/jsoapdoc-core</url>
 
     <properties>
-        <maven.logo.url></maven.logo.url>
+        <maven.logo.url>https://raw.githubusercontent.com/jsoapdoc/jsoapdoc-core/master/src/main/resources/img/logo.svg</maven.logo.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>

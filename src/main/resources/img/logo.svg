@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
     <!-- Circuit board style background -->
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+    <pattern patternUnits="userSpaceOnUse">
         <circle cx="15" cy="15" r="1" fill="#e5e7eb"/>
         <path d="M15,0 v30 M0,15 h30" stroke="#e5e7eb" stroke-width="0.5"/>
     </pattern>

@@ -107,7 +107,7 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
         htmlBuilder.append("body {font-family: Roboto, sans-serif; margin: 20px; padding: 0; background-color: #f4f4f9;}");
         // HEADER
         htmlBuilder.append(".header-container {display: flex; justify-content: space-around; align-items: center;}");
-        htmlBuilder.append(".header-container img {width: 100px; height: 100px;}");
+        htmlBuilder.append(".header-container img {width: 150px; height: 150px;}");
         htmlBuilder.append(".header-container h1 {color: #12264B; padding-bottom: 10px; font-size: 26px; text-align: center;}");
         // HR
         htmlBuilder.append("hr {background-color: #12264B; border: 0; height: 10px; margin: 10px 0; border-radius: 5px;}");
@@ -159,7 +159,7 @@ public class SoapDocInitializer implements ApplicationListener<ApplicationReadyE
         // HEADER
         htmlBuilder.append("<div class=\"header-container\">");
         htmlBuilder.append("<h1>SOAP Service Documentation</h1>");
-        htmlBuilder.append("<img src=\"https://i.postimg.cc/dZZPzzJR/soap.png\" alt=\"logo\">");
+        htmlBuilder.append("<img src=\"https://raw.githubusercontent.com/jsoapdoc/jsoapdoc-core/master/src/main/resources/img/logo.svg\" alt=\"logo\">");
         htmlBuilder.append("</div><hr>");
 
         // DROPDOWN
