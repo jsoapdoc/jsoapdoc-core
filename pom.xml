@@ -5,7 +5,7 @@
 
     <groupId>io.github.jsoapdoc</groupId>
     <artifactId>jsoapdoc-core</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <name>jsoapdoc</name>
     <description>SOAP Service Documentation Generator for Java</description>
