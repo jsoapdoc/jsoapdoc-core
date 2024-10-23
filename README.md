@@ -1,10 +1,13 @@
-# JSoapDoc
+<div style="display: flex; justify-content: flex-start; align-items: center;">
+    <img src="https://raw.githubusercontent.com/jsoapdoc/jsoapdoc-core/master/src/main/resources/img/logo.svg" width="170" alt="JSoapDoc Logo"/>
+    <h1>JSoapDoc</h1>
+</div>
 
 ### JSOAPDOC is a Java library designed to automatically generate HTML documentation for SOAP web services built with Spring Boot. By annotating your endpoints and methods, you can produce comprehensive documentation that includes endpoint details, operations, request and response structures, and sample XML messages.
 
-1. Add jsoapdoc to Your Project
+1. Add jsoapdoc to your Project
 2. Configure the Library
-3. Annotate Your Endpoints and Methods
+3. Annotate your Endpoints and Methods
 4. Enable jsoapdoc
 
 
