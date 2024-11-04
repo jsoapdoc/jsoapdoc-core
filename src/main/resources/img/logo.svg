@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
     <!-- Circuit board style background -->
-    <pattern patternUnits="userSpaceOnUse">
+    <pattern id="grid" patternUnits="userSpaceOnUse">
         <circle cx="15" cy="15" r="1" fill="#e5e7eb"/>
         <path d="M15,0 v30 M0,15 h30" stroke="#e5e7eb" stroke-width="0.5"/>
     </pattern>
@@ -8,17 +8,17 @@
 
     <!-- Main hexagon -->
     <path d="M200,50 L260,80 L260,140 L200,170 L140,140 L140,80 Z"
-          fill="#1e40af"
-          stroke="#3b82f6"
+          fill="#967f00"
+          stroke="#967f00"
           stroke-width="4"/>
 
     <!-- XML brackets -->
-    <path d="M180,90 L160,110 L180,130" fill="none" stroke="white" stroke-width="4"/>
-    <path d="M220,90 L240,110 L220,130" fill="none" stroke="white" stroke-width="4"/>
+    <path d="M180,90 L160,110 L180,130" fill="none" stroke="#1e2023" stroke-width="4"/>
+    <path d="M220,90 L240,110 L220,130" fill="none" stroke="#1e2023" stroke-width="4"/>
 
     <!-- Doc symbol -->
-    <rect x="190" y="95" width="20" height="30" fill="white"/>
-    <rect x="195" y="100" width="10" height="2" fill="#1e40af"/>
-    <rect x="195" y="105" width="10" height="2" fill="#1e40af"/>
-    <rect x="195" y="110" width="10" height="2" fill="#1e40af"/>
+    <rect x="190" y="95" width="20" height="30" fill="#1e2023"/>
+    <rect x="195" y="100" width="10" height="2" fill="#967f00"/>
+    <rect x="195" y="105" width="10" height="2" fill="#967f00"/>
+    <rect x="195" y="110" width="10" height="2" fill="#967f00"/>
 </svg>
